@@ -1,0 +1,2 @@
+Por lo general, las syscalls son mas lentas que las llamadas a las funciones de una biblioteca. Pero además, se cuenta con 
+mayores privilegios ya que se comunica con el Kernel, y otras veces también se requiere un cambio de contexto.

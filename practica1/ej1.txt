@@ -1,0 +1,7 @@
+1- Se activa una interrupción.
+
+2- Se guarda el contexto del proceso (es decir, el IP y otros registros) en el PCB.
+
+3- Cargamos los registros y el IP a la memoria desde el PCB del proceso nuevo. 
+
+4- Ejecutamos el nuevo proceso.
