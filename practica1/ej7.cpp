@@ -27,14 +27,14 @@ int main(){
 					printf("Maggie\n");
 				}
 				else{
-					wait(NULL);
+					waitpid(p,NULL,0);
 					printf("Homer\n");
 				}
 			}
         }
 	}
 	else{
-        wait(NULL);
+        waitpid(p,NULL,0);
 		printf("Abraham\n");
 	}
 	return 0;
