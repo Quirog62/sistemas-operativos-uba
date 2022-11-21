@@ -1,0 +1,1 @@
+No son iguales, lo que ocurre es que al crear dos procesos (un padre y su hijo), entonces el proceso padre va a entrar al if cuando pid != 0. Por otro lado, el proceso hijo va a realizar la ejecución por su lado, y va a entrar al if cuando pid == 0. Por este motivo los datos no son iguales.

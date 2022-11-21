@@ -1,0 +1,15 @@
+a) Se lanzan un proceso padre y un hijo. El proceso padre imprime por pantalla 'sup!' y el proceso hijo imprime 'ya va!'.
+
+b) Si, porque se usan las señales para comunicarse entre el proceso padre y su hijo
+
+c) 1) Lo primero que ocurre es que se realiza una llamada a la función fork() por lo que ahí vamos a tener un proceso padre y su hijo.
+   2) Se llama a la syscall sigaction() y ahi se mapea la señal SIGINT con un handler de señal.
+   3) Luego se llaman a las syscalls sigprocmask(), sigaction() y sigprocmask nuevamente. Todo esto es para redefinir la señal SIGCHLD
+    
+   4) Se llama a sleep(1)
+   5) El proceso hijo llama a sigaction() para mapear la señal SIGURG con un handler de señal.
+   6) Por otro lado, el padre escribe 'sup!'.
+   7) El padre manda la señal SIGURG al hijo.
+   8) El hijo recibe la señal y escribe 'ya va!'
+   9) Una vez que esto se repite 5 veces. El hijo activa la señal SIGINT.
+   10) El padre recibe la señal SIGINT y llama a la función wait4() para esperar a que el hijo termine.
